@@ -11,5 +11,3 @@ declare namespace App {
 }
 
 declare module 'simple-svelte-autocomplete';
-// declare module 'analytics';
-declare module '@analytics/google-tag-manager';

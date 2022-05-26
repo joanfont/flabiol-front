@@ -29,13 +29,10 @@
   let randomAttempts = <Attempt[]>[];
   let customAttempts = <Attempt[]>[];
   let customRandomAttempts = <Attempt[]>[];
-  const FIRST_DAY = new Date('4/12/2022');
+  const FIRST_DAY = new Date('5/28/2022');
 
   onMount(() => {
     officialAttempts = pastAttempts.get().array.filter(a => a.type === 'default') as Attempt[];
-    randomAttempts = pastAttempts.get().array.filter(a => a.type === 'random') as Attempt[];
-    customAttempts = pastAttempts.get().array.filter(a => a.type === 'custom') as Attempt[];
-    customRandomAttempts = pastAttempts.get().array.filter(a => a.type === 'custom_random') as Attempt[];
   });
 
   const getCorrectArtistGuesses = () => {
@@ -64,49 +61,41 @@
 </script>
 
 <div class='w-8/12 mx-auto mt-2'>
-  <h1 class='text-4xl text-white'>official stats</h1>
+  <h1 class='text-4xl text-white'>Estadístiques</h1>
   <div>
     <ul class='ml-4 mt-2'>
       <li class='text-blue-500'>{officialAttempts.length}/{daysBetweenDates(new Date(), FIRST_DAY)} audials attempted.
       </li>
-      <li class='text-green-500'>{officialAttempts.filter(a => a.correct).length} correct guesses.</li>
-      <li class='text-amber-400'>{getCorrectArtistGuesses()} correct artist guesses.</li>
-      <li class='text-red-600'>{getIncorrectGuesses()} incorrect guesses.</li>
-      <li class='text-gray-400'>{getSkippedGuesses()} skips.</li>
-    </ul>
-  </div>
-  <h1 class='text-4xl text-white mt-3'>unofficial stats</h1>
-  <div>
-    <ul class='ml-4 mt-2'>
-      <li class='text-gray-300'>{randomAttempts.length} <span class='text-red-600'>random</span> attempts
-        with {(randomAttempts.filter(a => a.correct).length / randomAttempts.length * 100) || 0}% correct.
-      </li>
-      <li class='text-gray-300'>{customAttempts.length} <span class='text-green-500'>custom</span> attempts
-        with {(customAttempts.filter(a => a.correct).length / customAttempts.length * 100) || 0}% correct.
-      </li>
-      <li class='text-gray-300'>{customRandomAttempts.length} <span class='text-red-600'>random</span> <span
-        class='text-green-500'>custom</span> attempts
-        with {(customAttempts.filter(a => a.correct).length / customAttempts.length * 100) || 0}% correct.
-      </li>
+      <li class='text-green-500'>{officialAttempts.filter(a => a.correct).length} encerts.</li>
+      <li class='text-amber-400'>{getCorrectArtistGuesses()} artistes endevinats.</li>
+      <li class='text-red-600'>{getIncorrectGuesses()} fallos.</li>
+      <li class='text-gray-400'>{getSkippedGuesses()} omissions.</li>
     </ul>
   </div>
   <div class='mt-10 text-gray-400'>
     <div>
-      open source on <a
+      Codi font disponible a <a
       class='underline-offset-1 underline text-blue-500'
-      href='https://github.com/mdean808/audial'
+      href='https://github.com/joanfont/flabiol-front'
       target='_blank'>github</a
     >.
     </div>
     <div>
-      made by <a
+      Fet per <a
+      class='underline-offset-1 underline text-blue-500'
+      href='https://joanfont.dev'
+      target='_blank'>Joan Font</a
+    > amb svelte, firebase, i github pages.
+    </div>
+    <div>
+      Inspirat per <a
       class='underline-offset-1 underline text-blue-500'
       href='https://mogdan.xyz'
       target='_blank'>morgan dean</a
-    > with svelte, firebase, and github pages.
+    >
     </div>
     <p class='cursor-pointer text-red-400 underline-offset-1 underline mt-10' on:click={resetData}>
-      reset local data
+      Reinicia el joc
     </p>
   </div>
 </div>

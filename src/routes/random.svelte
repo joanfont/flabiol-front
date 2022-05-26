@@ -1,6 +1,6 @@
 <script lang='ts'>
   import Footer from '$components/Footer.svelte';
-  import { loading, temporaryAttempt } from '$src/store';
+  import { loading, temporaryAttempt, playlist } from '$src/store';
   import Game from '$components/Game.svelte';
   import { onMount } from 'svelte';
   import { loadGame } from '$lib/util';
@@ -16,7 +16,7 @@
       date: new Date(),
       correct: false
     });
-    await loadGame('', true);
+    await loadGame($playlist);
   });
 
 </script>

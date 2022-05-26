@@ -1,13 +1,14 @@
 import type { Song, SpotifyTrack } from '$src/types';
 import { allTracks, currentSong, loading, playlist } from '../store';
-import { getDailySpotifyTrack } from './spotify';
+import { getDailySpotifyTrack, getSpotifyPlaylistTracks } from './spotify';
 
 export const convertSpotifyTrackToSong = (track: SpotifyTrack) => {
   const song: Song = {
     name: track.name,
-    artist: track.artists ? track.artists[0].name : 'unknown artist',
+    artist: track.artist,
     id: track.id,
-    preview: track.preview_url
+    preview: track.preview,
+    album: track.album,
   };
   return song;
 };
@@ -18,11 +19,12 @@ export const daysBetweenDates = (d1: Date, d2: Date) => {
 };
 
 
-export const loadGame = async (playlistId: string, random: boolean) => {
+export const loadGame = async (playlistId: string) => {
   loading.set(true);
-  const trackResponse = await getDailySpotifyTrack(playlistId, random);
-  allTracks.set(trackResponse.tracks);
-  const song = convertSpotifyTrackToSong(trackResponse.daily);
+  const track = await getDailySpotifyTrack(playlistId);
+  const allsongs = await getSpotifyPlaylistTracks(playlistId);
+  allTracks.set(allsongs);
+  const song = convertSpotifyTrackToSong(track);
   currentSong.set(song);
   playlist.set(playlistId);
   loading.set(false);

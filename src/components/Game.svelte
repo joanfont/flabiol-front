@@ -7,7 +7,6 @@
   import type { Attempt, Guess, Song, SpotifyTrack } from '$src/types';
   import Button from '$components/Button.svelte';
   import GameEnd from '$components/GameEnd.svelte';
-  import analytics from '$lib/analytics';
   import { toast } from '@zerodevx/svelte-toast';
 
   export let random = false;
@@ -72,8 +71,6 @@
         currentAttempt.setKey('correct', true);
         currentAttempt.setKey('attempts', attempt.attempts + 1);
       }
-      analytics.track('guess-song', { correct: true, custom, random: random });
-      analytics.track('attempt-correct', { custom, random: random });
       // save correct attempt to localstorage
       pastAttempts.set({ array: [...pastAttempts.get().array, attempt] });
     } else {
@@ -90,10 +87,9 @@
         currentAttempt.setKey('guesses', guesses);
         currentAttempt.setKey('attempts', attempt.attempts + 1);
       }
-      analytics.track('guess-song', { correct: false, custom, random: random });
     }
     if (attempt.attempts === 6 && !attempt.correct) {
-      analytics.track('attempt-fail', { custom, random: random });
+
       // save incorrect attempt to localstorage
       pastAttempts.set({ array: [...pastAttempts.get().array, attempt] });
     }
@@ -115,19 +111,19 @@
       currentAttempt.setKey('guesses', guesses);
       currentAttempt.setKey('attempts', attempt.attempts + 1);
     }
-    analytics.track('skip-song', { custom, random: random });
   };
 
   const searchSongs = async (query: string) => {
     let searchResults: SpotifyTrack[] | Song[] = $allTracks.filter((t) => {
-      return (t.name + ' ' + t.artists[0].name).toLowerCase().includes(query.toLowerCase());
+      return (t.name + ' ' + t.artist).toLowerCase().includes(query.toLowerCase());
     });
     searchResults = searchResults.map((t) => convertSpotifyTrackToSong(t));
     searchResults = searchResults.map((s) => <Song>{
-      name: s.name + ' by ' + s.artist,
+      name: s.name + ' - ' + s.artist,
       id: s.id,
       artist: s.artist,
-      preview: s.preview
+      preview: s.preview,
+      album: s.album,
     });
     return searchResults;
   };
@@ -138,7 +134,7 @@
   {#if attempt.attempts === 0}
     <div class='w-full px-0 sm:px-20 transition-all duration-200'>
       <span class='text-center mx-auto w-full text-blue-100'
-      >listen to the song and try to guess it correctly. you have 6 attempts.</span
+      >Escolta la cançó i intenta endevinar-la. Tens 6 intents.</span
       >
     </div>
   {/if}
@@ -148,7 +144,7 @@
       {#each attempt.guesses.filter((g) => !g.correct) as guess}
         {#if guess.song}
           <div
-            title='Open in Spotify'
+            title='Obre a Spotify'
             on:click={() => {
               window.open(`https://open.spotify.com/track/${guess.song.id}`, '_blank').focus();
             }}
@@ -156,25 +152,25 @@
               guess.artistCorrect ? 'border-amber-400' : 'border-red-600'
             } border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden`}
           >
-            {guess.song.name} by {guess.song.artist}
+            {guess.song.name} - {guess.song.artist}
           </div>
         {:else}
           <div
             class={`border-gray-600 border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden`}
           >
-            song guess skipped
+            Intent omès
           </div>
         {/if}
       {/each}
       {#each attempt.guesses.filter((g) => g.correct) as guess}
         <div
-          title='Open in Spotify'
+          title='Obre a Spotify'
           on:click={() => {
             window.open(`https://open.spotify.com/track/${guess.song.id}`, '_blank').focus();
           }}
           class='cursor-pointer border-green-600 border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden'
         >
-          {guess.song.name} by {guess.song.artist}
+          {guess.song.name} - {guess.song.artist}
         </div>
       {/each}
     {/if}
@@ -186,8 +182,8 @@
           inputClassName='border-gray-600 border-2 w-full h-8 px-2 py-5 rounded-sm bg-gray-900 hover:border-gray-400 focus:border-gray-400 outline-none transition-all duration-200'
           dropdownClassName='p-0 bg-gray-900'
           placeholder={`${6 - attempt.attempts} ${
-            6 - attempt.attempts !== 1 ? 'attempts' : 'attempt'
-          } left`}
+            6 - attempt.attempts !== 1 ? 'intents restants' : 'intent restant'
+          }`}
           minCharactersToSearch={2}
           searchFunction={searchSongs}
           bind:selectedItem={currentSelectedSong}
@@ -205,10 +201,10 @@
             <span>{item.name}</span>
           </div>
           <div slot='no-results' class='py-1'>
-            <span>could not find this song in the playlist.</span>
+            <span>No s'ha trobat aquesta cançó</span>
           </div>
           <div slot='loading' class='py-1'>
-            <span>searching for songs...</span>
+            <span>Cercant cançons...</span>
           </div>
         </AutoComplete>
         <div class='w-2/12 pl-4 mt-0.5' title='guess selected song'>
@@ -228,7 +224,7 @@
             class='text-gray-400 cursor-pointer text-center underline underline-offset-1'
             on:click={skipSong}
           >
-            skip
+            omet
           </div>
         </div>
       </div>

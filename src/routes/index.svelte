@@ -1,13 +1,13 @@
 <script lang='ts'>
   import Footer from '$components/Footer.svelte';
-  import { loading } from '$src/store';
+  import { loading, playlist } from '$src/store';
   import Game from '$components/Game.svelte';
   import { onMount } from 'svelte';
   import { loadGame } from '$lib/util';
   import LoadingIndicator from '$components/LoadingIndicator.svelte';
 
   onMount(async () => {
-    await loadGame('', false);
+    await loadGame($playlist);
   });
 </script>
 

@@ -41,7 +41,7 @@
       date: new Date(),
       correct: false
     });
-    await loadGame(id, false);
+    await loadGame(id);
   };
 </script>
 {#if playingGame}

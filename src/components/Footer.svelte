@@ -3,7 +3,6 @@
   import { onMount } from 'svelte';
   import type { Attempt } from '$src/types';
   import AttemptVisualizer from '$components/AttemptVisualizer.svelte';
-  import analytics from '$lib/analytics';
   import { page } from '$app/stores';
 
   let player: HTMLAudioElement;
@@ -52,7 +51,6 @@
   songPaused.listen((value) => (paused = value));
 
   const playSong = () => {
-    analytics.track('play-song');
     songPaused.set(false);
     player.play();
     timeElapsed = '0:00';
