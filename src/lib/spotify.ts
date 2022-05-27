@@ -1,7 +1,7 @@
 import type { SpotifyTrack } from '$src/types';
 import { dev } from '$app/env';
 
-const BASE_URL = !dev ? 'https://sonador.joanfont.cat/api' : 'http://localhost:8080';
+const BASE_URL = !dev ? 'https://grall.joanfont.cat/api' : 'http://localhost:8080';
 
 export const getSpotifyPlaylistTracks = async (playlistId: string) => {
   const res = await fetch(

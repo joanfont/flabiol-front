@@ -30,7 +30,7 @@
   };
 
   const generateShareClipboard = () => {
-    let string = `#Sonador #` + daysBetweenDates(new Date(), FIRST_DAY);
+    let string = `#Grall #` + daysBetweenDates(new Date(), FIRST_DAY);
     string += '\n' + generateEmojis();
     string += '\n\n' + $page.url.toString();
     navigator.clipboard.writeText(string);
@@ -51,7 +51,7 @@
     </div>
   {/if}
   {#if !random}
-    <span class='my-2'>sonador #{daysBetweenDates(new Date(), FIRST_DAY)}</span>
+    <span class='my-2'>Grall #{daysBetweenDates(new Date(), FIRST_DAY)}</span>
   {/if}
   <span> {generateEmojis()}</span>
   {#if !random}
