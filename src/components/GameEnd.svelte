@@ -32,7 +32,7 @@
   const generateShareClipboard = () => {
     let string = `#Sonador #` + daysBetweenDates(new Date(), FIRST_DAY);
     string += '\n' + generateEmojis();
-    string += '\n' + $page.url.toString();
+    string += '\n\n' + $page.url.toString();
     navigator.clipboard.writeText(string);
     notifyClipboard = true;
   };
@@ -62,14 +62,14 @@
         type='submit'
         on:click={generateShareClipboard}
       >
-        share
+        Comparteix
       </Button>
       <p
         class={`${
           notifyClipboard ? 'opacity-100' : 'opacity-0'
         } text-blue-100 font-semibold transition-all duration-500 my-2`}
       >
-        copiat al porta-retalls.
+        Copiat al porta-retalls.
       </p>
     </div>
   {/if}

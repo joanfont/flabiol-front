@@ -9,16 +9,6 @@
     <div class='max-w-screen-md mx-auto '>
       <div class='flex justify-evenly p-3 items-center'>
         <div class='flex flex-1'>
-        </div>
-        <div>
-          <h1
-            class='text-3xl font-bold flex-grow text-center flex-1 cursor-pointer text-white relative hover:underline underline-offset-1 decoration-blue-500 hover:text-blue-500'
-            on:click={() => goto('/')}
-          >
-            Sonador
-          </h1>
-        </div>
-        <div class='flex flex-1 justify-end'>
           <button
             class='px-2 py-2 tracking-widest border-none flex items-center font-semibold text-sm text-white hover:text-blue-600'
             on:click={() => goto('/stats')}
@@ -38,6 +28,16 @@
               <path d='M12 20v-6M6 20V10M18 20V4' />
             </svg>
           </button>
+        </div>
+        <div>
+          <h1
+            class='text-3xl font-bold flex-grow text-center flex-1 cursor-pointer text-white relative hover:underline underline-offset-1 decoration-blue-500 hover:text-blue-500'
+            on:click={() => goto('/')}
+          >
+            Sonador
+          </h1>
+        </div>
+        <div class='flex flex-1 justify-end'>
           <button
             class='px-2 py-2 uppercase tracking-widest border-none flex items-center font-semibold text-sm text-white hover:text-blue-600'
             on:click={() => readInstructions.set(false)}

@@ -224,7 +224,7 @@
             class='text-gray-400 cursor-pointer text-center underline underline-offset-1'
             on:click={skipSong}
           >
-            omet
+            Omet
           </div>
         </div>
       </div>

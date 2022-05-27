@@ -119,7 +119,7 @@
         <button
           class={`hover:text-blue-600 transition-colors duration-200 ${paused ? '' : 'hidden'}`}
           on:click={playSong}
-          title='Play Song'
+          title='Reprodueix'
         >
           <svg
             class='w-14 h-14 mx-auto'
@@ -145,7 +145,7 @@
         <button
           class={`hover:text-blue-600 transition-colors duration-200 ${paused ? 'hidden' : ''}`}
           on:click={stopSong}
-          title='Pause Song'
+          title='Pausa'
         >
           <svg
             class='w-14 h-14 mx-auto'
