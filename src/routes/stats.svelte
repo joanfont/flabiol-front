@@ -29,7 +29,7 @@
   let randomAttempts = <Attempt[]>[];
   let customAttempts = <Attempt[]>[];
   let customRandomAttempts = <Attempt[]>[];
-  const FIRST_DAY = new Date('5/27/2022');
+  const FIRST_DAY = new Date('5/28/2022');
 
   onMount(() => {
     officialAttempts = pastAttempts.get().array.filter(a => a.type === 'default') as Attempt[];
