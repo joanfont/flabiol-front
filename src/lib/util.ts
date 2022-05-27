@@ -21,7 +21,9 @@ export const daysBetweenDates = (d1: Date, d2: Date) => {
 
 export const loadGame = async (playlistId: string) => {
   loading.set(true);
-  const track = await getDailySpotifyTrack(playlistId);
+  const today = new Date();
+  const todayStr = today.toISOString().slice(0, 10);
+  const track = await getDailySpotifyTrack(playlistId, todayStr);
   const allsongs = await getSpotifyPlaylistTracks(playlistId);
   allTracks.set(allsongs);
   const song = convertSpotifyTrackToSong(track);

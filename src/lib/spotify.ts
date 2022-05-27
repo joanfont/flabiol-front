@@ -13,9 +13,9 @@ export const getSpotifyPlaylistTracks = async (playlistId: string) => {
   return (await res.json()) as SpotifyTrack[];
 };
 
-export const getDailySpotifyTrack = async (playlistId: string) => {
+export const getDailySpotifyTrack = async (playlistId: string, day: string) => {
   const res = await fetch(
-    `${BASE_URL}/today?playlist=${playlistId}`,
+    `${BASE_URL}/today?playlist=${playlistId}&day=${day}`,
     {
       method: 'GET',
       cache: 'reload'
