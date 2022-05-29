@@ -24,7 +24,7 @@
           </li>
           <li>
             <span
-            >Si la resposta és incorrecta o fas clic a "Omet", s'afegiràn més segons de la cançó a endevinar.</span
+            >Si la resposta és incorrecta o fas clic a "Omet", s'afegiran més segons de la cançó a endevinar.</span
             >
           </li>
           <li>

@@ -64,11 +64,11 @@
   <h1 class='text-4xl text-white'>Estadístiques</h1>
   <div>
     <ul class='ml-4 mt-2'>
-      <li class='text-blue-500'>{officialAttempts.length}/{daysBetweenDates(new Date(), FIRST_DAY)} audials attempted.
+      <li class='text-blue-500'>{officialAttempts.length}/{daysBetweenDates(new Date(), FIRST_DAY)} #Gralls provats.
       </li>
       <li class='text-green-500'>{officialAttempts.filter(a => a.correct).length} encerts.</li>
       <li class='text-amber-400'>{getCorrectArtistGuesses()} artistes endevinats.</li>
-      <li class='text-red-600'>{getIncorrectGuesses()} fallos.</li>
+      <li class='text-red-600'>{getIncorrectGuesses()} errors.</li>
       <li class='text-gray-400'>{getSkippedGuesses()} omissions.</li>
     </ul>
   </div>
