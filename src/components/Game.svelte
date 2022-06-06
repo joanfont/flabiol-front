@@ -46,7 +46,7 @@
 
   const chooseSong = () => {
     if (!currentSelectedSong || !currentSelectedSong.id) {
-      toast.push('Please select a valid song from the list.', {
+      toast.push('Sel·lecciona una cançó de la llista...', {
         theme: {
           '--toastWidth': '20rem',
           '--toastBackground': '#e64949',
