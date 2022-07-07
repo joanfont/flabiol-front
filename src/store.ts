@@ -54,7 +54,7 @@ export const temporaryAttempt = map<Attempt>(<Attempt>{
 
 export const isRandom = atom(false);
 
-export const playlist = atom('5IVc7FtYxiuxGoVzvQGJ4n');
+export const playlist = atom('2wu6CyL2a23H3zhepZw441');
 
 export const loading = atom(true);
 
