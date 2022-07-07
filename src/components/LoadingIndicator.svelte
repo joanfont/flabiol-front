@@ -1,4 +1,4 @@
-<div class={`w-full mx-auto text-center mt-20 text-blue-600`}>
+<div class={`w-full mx-auto text-center mt-20 text-blau`}>
   <svg
     class='animate-spin'
     height='100px'

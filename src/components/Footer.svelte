@@ -104,7 +104,7 @@
   };
 </script>
 
-<footer class='border-t border-white bottom-0 w-full fixed bg-gray-800'>
+<footer class='border-t border-white bottom-0 w-full fixed green'>
   <div class='border-b'>
     <AttemptVisualizer {attempt} />
   </div>
@@ -113,9 +113,9 @@
     <!-- TRACK CONTROL AREA -->
     <div class='flex justify-evenly items-center w-full'>
       {#if player}
-        <div class='flex flex-1 justify-start font-mono'>{timeElapsed}</div>
+        <div class='flex flex-1 justify-start text-black font-mono'>{timeElapsed}</div>
       {/if}
-      <div class='text-center flex-1 justify-center'>
+      <div class='text-center text-black flex-1 justify-center'>
         <button
           class={`hover:text-blue-600 transition-colors duration-200 ${paused ? '' : 'hidden'}`}
           on:click={playSong}
@@ -143,7 +143,7 @@
           </svg>
         </button>
         <button
-          class={`hover:text-blue-600 transition-colors duration-200 ${paused ? 'hidden' : ''}`}
+          class={`hover:text-black transition-colors duration-200 ${paused ? 'hidden' : ''}`}
           on:click={stopSong}
           title='Pausa'
         >
@@ -169,7 +169,7 @@
         </button>
       </div>
       {#if player}
-        <div class='flex flex-1 justify-end font-mono'>
+        <div class='flex flex-1 justify-end text-black font-mono'>
           {Math.floor(songLength / 60) +
           ':' +
           (Math.round(songLength % 60) < 10

@@ -7,10 +7,39 @@
   src: url('/fonts/LeagueSpartan.ttf');
 }
 
+@font-face {
+  font-family: 'Staatliches';
+  src: url('/fonts/Staatliches.ttf');
+}
+
 body {
   font-family: 'League Spartan', sans-serif;
-  background: theme('colors.gray.800');
+  background: rgb(255, 225, 128);
   color: theme('colors.gray.200');
+}
+
+header.pink {
+  background: rgb(255, 169, 192);
+}
+
+.pink-darker { 
+  background: #55363f;
+}
+
+.boto {
+  background: rgba(90,188,127);
+}
+
+.green {
+  background: rgba(90,188,127);
+}
+
+.blau {
+  background: rgb(132, 202, 236);
+}
+
+.text-blau {
+  color: rgb(132, 202, 236);
 }
 
 /* Chrome, Edge, and Safari */
@@ -38,7 +67,7 @@ body {
 }
 
 .autocomplete-list {
-  background: theme('colors.gray.900') !important;
+  background: rgb(132, 202, 236) !important;
   padding: theme('padding.1') theme('padding.2') !important;
   max-height: 40vh !important;
 }
