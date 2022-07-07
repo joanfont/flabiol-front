@@ -34,7 +34,7 @@
             class='text-3xl font-bold flex-grow text-center flex-1 cursor-pointer text-white relative hover:underline underline-offset-1 decoration-blue-500 hover:text-blue-500'
             on:click={() => goto('/')}
           >
-          Grall
+          Mobo
           </h1>
         </div>
         <div class='flex flex-1 justify-end'>

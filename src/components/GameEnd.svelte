@@ -8,7 +8,7 @@
   export let custom;
 
   let notifyClipboard = false;
-  const FIRST_DAY = new Date('5/27/2022');
+  const FIRST_DAY = new Date('6/8/2022');
 
   const generateEmojis = () => {
     let emojiString = '';
@@ -30,7 +30,7 @@
   };
 
   const generateShareClipboard = () => {
-    let string = `#Grall #` + daysBetweenDates(new Date(), FIRST_DAY);
+    let string = `#Mobo #` + daysBetweenDates(new Date(), FIRST_DAY);
     string += '\n' + generateEmojis();
     string += '\n\n' + $page.url.toString();
     navigator.clipboard.writeText(string);
@@ -51,7 +51,7 @@
     </div>
   {/if}
   {#if !random}
-    <span class='my-2'>Grall #{daysBetweenDates(new Date(), FIRST_DAY)}</span>
+    <span class='my-2'>Mobo #{daysBetweenDates(new Date(), FIRST_DAY)}</span>
   {/if}
   <span> {generateEmojis()}</span>
   {#if !random}
