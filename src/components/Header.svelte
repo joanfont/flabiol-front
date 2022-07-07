@@ -5,12 +5,12 @@
 </script>
 
 <div>
-  <header class='pink'>
+  <header>
     <div class='max-w-screen-md mx-auto '>
       <div class='flex justify-evenly p-3 items-center'>
         <div class='flex flex-1'>
           <button
-            class='px-2 py-2 tracking-widest border-none flex items-center font-semibold text-sm text-black hover:pink-darker'
+            class='px-2 py-2 tracking-widest border-none flex items-center font-semibold text-sm text-pink hover:text-pink-darker'
             on:click={() => goto('/stats')}
             title='Veure estadístiques'
           >
@@ -31,7 +31,7 @@
         </div>
         <div>
           <h1
-            class='text-3xl font-bold flex-grow text-center flex-1 cursor-pointer text-black relative hover:underline underline-offset-1 decoration-blue-500 hover:text-blue-500'
+            class='text-3xl font-bold flex-grow text-center flex-1 cursor-pointer text-pink relative hover:underline underline-offset-1 hover:text-pink-darker'
             on:click={() => goto('/')}
             style='font-family: Staatliches, sans-serif'
           >
@@ -40,7 +40,7 @@
         </div>
         <div class='flex flex-1 justify-end'>
           <button
-            class='px-2 py-2 uppercase tracking-widest border-none flex items-center font-semibold text-sm text-black hover:pink-darker'
+            class='px-2 py-2 uppercase tracking-widest border-none flex items-center font-semibold text-sm text-pink hover:text-pink-darker'
             on:click={() => readInstructions.set(false)}
             title='Veure instruccions'
           >

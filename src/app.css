@@ -14,12 +14,20 @@
 
 body {
   font-family: 'League Spartan', sans-serif;
-  background: rgb(255, 225, 128);
+  background: rgb(25,25,21);
   color: theme('colors.gray.200');
 }
 
-header.pink {
+.negre {
+  background: rgb(25,25,21);
+}
+
+.pink {
   background: rgb(255, 169, 192);
+}
+
+.text-pink {
+  color: rgb(255, 169, 192);
 }
 
 .pink-darker { 
@@ -27,11 +35,11 @@ header.pink {
 }
 
 .boto {
-  background: rgba(90,188,127);
+  background: rgb(90,188,127);
 }
 
 .green {
-  background: rgba(90,188,127);
+  background: rgb(90,188,127);
 }
 
 .blau {
@@ -41,6 +49,51 @@ header.pink {
 .text-blau {
   color: rgb(132, 202, 236);
 }
+
+.fosc {
+  background:  rgb(25,25,21);;
+}
+
+.groc {
+  background: rgb(254,218,124)
+}
+
+.purple {
+  background: rgba(119,120,187,255);
+}
+
+.border-pink {
+  border-color: rgb(255, 169, 192);
+}
+
+.border-groc {
+  border-color: rgb(254,218,124);
+}
+
+.border-green {
+  border-color: rgb(90,188,127);
+}
+
+.border-pink-darker { 
+  border-color: #55363f;
+}
+
+.border-purple {
+  border-color: rgb(119,120,187);
+}
+
+.text-green {
+  color: rgb(90,188,127);
+}
+
+.text-groc {
+  color: rgb(254,218,124);
+}
+
+.text-purple {
+  color: rgb(119,120,187);
+}
+
 
 /* Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
@@ -67,7 +120,7 @@ header.pink {
 }
 
 .autocomplete-list {
-  background: rgb(132, 202, 236) !important;
+  background:  rgb(25,25,21) !important;
   padding: theme('padding.1') theme('padding.2') !important;
   max-height: 40vh !important;
 }

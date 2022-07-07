@@ -58,7 +58,7 @@
     <div class='w-full mx-auto my-2'>
       <Button
         title='Share Score'
-        className='block mx-auto'
+        className='block mx-auto green'
         type='submit'
         on:click={generateShareClipboard}
       >

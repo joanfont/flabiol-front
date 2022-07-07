@@ -6,15 +6,15 @@
   const getColorOfAttempt = (index, attempts) => {
     let color = 'bg-black opacity-40';
     if (attempts === index && !attempt.correct) {
-      color = 'bg-blue-500';
+      color = 'pink';
     } else if (attempts === index + 1 && attempt.correct) {
-      color = 'bg-green-600';
+      color = 'green';
     } else if (attempts > index && (attempt.guesses[index] as Guess).artistCorrect) {
-      color = 'bg-amber-400';
+      color = 'groc';
     } else if (attempts > index && !(attempt.guesses[index] as Guess).song) {
-      color = 'bg-gray-500';
+      color = 'pink';
     } else if (attempts > index) {
-      color = 'bg-red-600';
+      color = 'purple';
     }
     return color;
   };

@@ -29,7 +29,7 @@
   let randomAttempts = <Attempt[]>[];
   let customAttempts = <Attempt[]>[];
   let customRandomAttempts = <Attempt[]>[];
-  const FIRST_DAY = new Date('5/27/2022');
+  const FIRST_DAY = new Date('7/8/2022');
 
   onMount(() => {
     officialAttempts = pastAttempts.get().array.filter(a => a.type === 'default') as Attempt[];
@@ -64,11 +64,11 @@
   <h1 class='text-4xl text-white'>Estadístiques</h1>
   <div>
     <ul class='ml-4 mt-2'>
-      <li class='text-blue-500'>{officialAttempts.length}/{daysBetweenDates(new Date(), FIRST_DAY)} #Mobo provats.
+      <li class='text-white'>{officialAttempts.length}/{daysBetweenDates(new Date(), FIRST_DAY)} #Mobo provats.
       </li>
-      <li class='text-green-500'>{officialAttempts.filter(a => a.correct).length} encerts.</li>
-      <li class='text-amber-400'>{getCorrectArtistGuesses()} artistes endevinats.</li>
-      <li class='text-red-600'>{getIncorrectGuesses()} errors.</li>
+      <li class='text-green'>{officialAttempts.filter(a => a.correct).length} encerts.</li>
+      <li class='text-groc'>{getCorrectArtistGuesses()} artistes endevinats.</li>
+      <li class='text-purple'>{getIncorrectGuesses()} errors.</li>
       <li class='text-gray-400'>{getSkippedGuesses()} omissions.</li>
     </ul>
   </div>

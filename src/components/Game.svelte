@@ -133,7 +133,7 @@
   <!-- PLAYLIST/GENRE TITLE -->
   {#if attempt.attempts === 0}
     <div class='w-full px-0 sm:px-20 transition-all duration-200'>
-      <span class='text-center mx-auto w-full text-black'
+      <span class='text-center mx-auto w-full text-white'
       >Escolta la cançó i intenta endevinar-la. Tens 6 intents.</span
       >
     </div>
@@ -149,14 +149,14 @@
               window.open(`https://open.spotify.com/track/${guess.song.id}`, '_blank').focus();
             }}
             class={`cursor-pointer ${
-              guess.artistCorrect ? 'border-amber-400' : 'border-red-600'
-            } border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden`}
+              guess.artistCorrect ? 'border-groc' : 'border-purple'
+            } border-2 h-10 p-2 my-2 w-full text-left rounded-sm negre overflow-ellipsis whitespace-nowrap overflow-hidden`}
           >
             {guess.song.name} - {guess.song.artist}
           </div>
         {:else}
           <div
-            class={`border-gray-600 border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden`}
+            class={`border-gray-600 border-2 h-10 p-2 my-2 w-full text-left rounded-sm negre overflow-ellipsis whitespace-nowrap overflow-hidden`}
           >
             Intent omès
           </div>
@@ -168,7 +168,7 @@
           on:click={() => {
             window.open(`https://open.spotify.com/track/${guess.song.id}`, '_blank').focus();
           }}
-          class='cursor-pointer border-green-600 border-2 h-10 p-2 my-2 w-full text-left rounded-sm bg-gray-900 overflow-ellipsis whitespace-nowrap overflow-hidden'
+          class='cursor-pointer border-green-600 border-2 border-green h-10 p-2 my-2 w-full text-left rounded-sm negre overflow-ellipsis whitespace-nowrap overflow-hidden'
         >
           {guess.song.name} - {guess.song.artist}
         </div>
@@ -179,7 +179,7 @@
         <AutoComplete
           name='song-selection'
           className='w-10/12'
-          inputClassName='border-gray-600 border-2 w-full h-8 px-2 py-5 rounded-sm blau hover:border-gray-400 focus:border-gray-400 outline-none transition-all duration-200'
+          inputClassName='border-gray-600 border-2 w-full h-8 px-2 py-5 fosc rounded-sm hover:border-gray-400 focus:border-gray-400 outline-none transition-all duration-200'
           dropdownClassName='p-0 blau'
           placeholder={`${6 - attempt.attempts} ${
             6 - attempt.attempts !== 1 ? 'intents restants' : 'intent restant'
@@ -196,7 +196,7 @@
           <div
             slot='item'
             let:item
-            class='border-2 h-10 px-2 py-3 w-full text-left rounded-sm blau text-white hover:text-blue-500 hover:border-blue-500 overflow-ellipsis whitespace-nowrap overflow-hidden transition-colors duration-150'
+            class='border-2 h-10 px-2 py-3 w-full text-left rounded-sm fosc text-white hover:text-blue-500 hover:border-blue-500 overflow-ellipsis whitespace-nowrap overflow-hidden transition-colors duration-150'
           >
             <span>{item.name}</span>
           </div>
@@ -208,7 +208,7 @@
           </div>
         </AutoComplete>
         <div class='w-2/12 pl-4 mt-0.5' title='guess selected song'>
-          <Button title='Submit Song Guess' type='primary' className='w-full boto' on:click={chooseSong}>
+          <Button title='Submit Song Guess' type='primary' className='w-full blau' on:click={chooseSong}>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               class='h-6 w-6 mx-auto'
@@ -221,7 +221,7 @@
             </svg>
           </Button>
           <div
-            class='text-gray-400 cursor-pointer text-center underline underline-offset-1'
+            class='text-white cursor-pointer text-center underline underline-offset-1'
             on:click={skipSong}
           >
             Omet
