@@ -231,5 +231,26 @@
     {:else}
       <GameEnd custom={custom} {random} />
     {/if}
+    <div
+      title='Compra la teva entrada'
+      style='font-family: Staatliches, sans-serif'
+      on:click={() => {
+        window.open(`https://linktr.ee/Mobofest`, '_blank').focus();
+      }}      
+      class='cursor-pointer border-green-600 border-2 border-black h-30 p-2 my-2 w-full text-black text-3xl text-center rounded-sm pink overflow-hidden'
+    >
+      Compra la teva entrada
+    </div>
+
+    <div
+      title='Line up'
+      style='font-family: Staatliches, sans-serif'
+      on:click={() => {
+        window.open(`https://mobofest.org/line-up/`, '_blank').focus();
+      }}      
+      class='cursor-pointer border-green-600 border-2 border-black h-30 p-2 my-2 w-full text-black text-3xl text-center rounded-sm pink overflow-hidden'
+    >
+      Line up
+    </div>
   </div>
 </div>
