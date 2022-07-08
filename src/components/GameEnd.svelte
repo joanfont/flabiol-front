@@ -8,7 +8,7 @@
   export let custom;
 
   let notifyClipboard = false;
-  const FIRST_DAY = new Date('6/8/2022');
+  const FIRST_DAY = new Date('7/8/2022');
 
   const generateEmojis = () => {
     let emojiString = '';
